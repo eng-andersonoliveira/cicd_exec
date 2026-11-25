@@ -1,4 +1,30 @@
+# Nome do pipeline
+name: CI Pipeline Básico
 
+# Quando o pipeline será executado
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build-and-test:
+    # Sistema operacional onde o job vai rodar
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Instalar Ansible
+        run: |
+          pip install ansible-core==2.17.5
+          ansible-galaxy collection install -r requirements.yml
 name: Pipeline Java CI
 
 on:
