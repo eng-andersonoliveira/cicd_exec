@@ -6,7 +6,7 @@
 
   vars:
     # O nome do bucket precisa ser globalmente único no AWS S3
-    bucket_name: "meu-bucket-ansible-BULUNGA"
+    bucket_name: "name: cicd-exec-anderson-2026"
     aws_region: "us-east-1"
 
   tasks:
